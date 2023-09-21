@@ -1,6 +1,7 @@
 package com.betrybe.agrix.controllers;
 
-import com.betrybe.agrix.dto.PersonDto;
+import com.betrybe.agrix.dto.PersonRequestDto;
+import com.betrybe.agrix.dto.PersonResponseDto;
 import com.betrybe.agrix.models.entities.Person;
 import com.betrybe.agrix.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +32,10 @@ public class PersonController {
    * Requisição POST para criar person.
    */
   @PostMapping
-  public ResponseEntity<PersonDto> save(@RequestBody PersonDto personDto) {
-    Person newPerson = personService.create(personDto.dtoToEntity());
-    PersonDto newPersonDto = PersonDto.entityToDto(newPerson);
-    return ResponseEntity.status(201).body(newPersonDto);
+  public ResponseEntity<PersonResponseDto> save(@RequestBody PersonRequestDto personRequestDto) {
+    Person newPerson = personService.create(personRequestDto.dtoToEntity());
+    PersonResponseDto newPersonResponseDto = PersonResponseDto.entityToDto(newPerson);
+    return ResponseEntity.status(201).body(newPersonResponseDto);
   }
 
 }
