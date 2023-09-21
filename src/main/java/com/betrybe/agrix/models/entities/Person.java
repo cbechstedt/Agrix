@@ -106,7 +106,5 @@ public class Person implements UserDetails {
         person.username) && Objects.equals(password, person.password)
         && Objects.equals(role, person.role);
   }
-
-
 }
 
