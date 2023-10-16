@@ -16,6 +16,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
@@ -93,7 +94,7 @@ public class PersonServiceTest {
     Assertions.assertNotNull(person);
     Assertions.assertEquals(id, person.getId());
     Assertions.assertEquals("Christian", person.getUsername());
-    Assertions.assertEquals("123456", person.getPassword());
+    Assertions.assertTrue(new BCryptPasswordEncoder().matches("123456", person.getPassword()));
     Assertions.assertEquals(Role.ADMIN, person.getRole());
 
     Mockito.verify(personRepository).save(person);
