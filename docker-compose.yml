@@ -1,6 +1,8 @@
-services:
+version: "3"
 
+services:
   mysql:
+    container_name: agrix_db
     image: mysql:8.0.32
     restart: always
     ports:
@@ -8,3 +10,9 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: agrixdb
+    networks:
+      - agrix_net
+
+networks:
+  agrix_net:
+    driver: bridge
