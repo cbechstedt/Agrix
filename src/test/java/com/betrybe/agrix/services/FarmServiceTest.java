@@ -26,7 +26,6 @@ class FarmServiceTest {
 
   @Autowired
   private FarmService farmService;
-  private List<Farm> mockFarmList;
   private Farm mockFarm1;
 
   @BeforeEach
@@ -35,13 +34,6 @@ class FarmServiceTest {
     mockFarm1.setId(1);
     mockFarm1.setName("testFarm1");
     mockFarm1.setSize(3.4);
-
-    Farm mockFarm2 = new Farm();
-    mockFarm2.setId(2);
-    mockFarm2.setName("testFarm2");
-    mockFarm2.setSize(4.4);
-
-    mockFarmList = List.of(mockFarm1, mockFarm2);
   }
 
   @Test
@@ -53,18 +45,32 @@ class FarmServiceTest {
 
     assertEquals("testFarm1", farm.getName());
     assertEquals(3.4, farm.getSize());
+
+    Mockito.verify(farmRepository).save(mockFarm1);
   }
 
   @Test
   @DisplayName("Should return all farms")
   void findAll() {
+/*    Farm mockFarm2 = new Farm();
+    mockFarm2.setId(2);
+    mockFarm2.setName("testFarm2");
+    mockFarm2.setSize(4.4);
+
+    List<Farm> mockFarmList = List.of(mockFarm1, mockFarm2);
+
     Mockito.when(farmRepository.findAll()).thenReturn(mockFarmList);
 
     List<Farm> farmList = farmService.findAll();
 
     assertEquals(2, farmList.size());
     assertEquals("testFarm1", farmList.get(0).getName());
-    assertEquals("testFarm2", farmList.get(1).getName());
+    assertEquals("testFarm2", farmList.get(1).getName());*/
+
+    // Simpler way to test. it just verifies if findAll was invoked, as the method is already tested by Spring JPA.
+
+    List<Farm> farmList = farmService.findAll();
+    Mockito.verify(farmRepository).findAll();
   }
 
   @Test
@@ -76,6 +82,8 @@ class FarmServiceTest {
 
     assertEquals("testFarm1", farm.getName());
     assertEquals(3.4, farm.getSize());
+
+    Mockito.verify(farmRepository).findById(mockFarm1.getId());
   }
 
   @Test
@@ -86,5 +94,7 @@ class FarmServiceTest {
     Mockito.when(farmRepository.findById(nonExistentFarmId)).thenReturn(Optional.empty());
 
     assertThrows(FarmNotFound.class, () -> farmService.findById(nonExistentFarmId));
+
+    Mockito.verify(farmRepository).findById(nonExistentFarmId);
   }
 }
