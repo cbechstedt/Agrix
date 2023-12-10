@@ -1,4 +1,4 @@
-package com.betrybe.agrix.evaluation.solution;
+package com.betrybe.agrix.evaluation.solution.services;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
