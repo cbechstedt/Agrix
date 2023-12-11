@@ -69,7 +69,7 @@ class FarmServiceTest {
 
     // Simpler way to test. it just verifies if findAll was invoked, as the method is already tested by Spring JPA.
 
-    List<Farm> farmList = farmService.findAll();
+    farmService.findAll();
     Mockito.verify(farmRepository).findAll();
   }
 

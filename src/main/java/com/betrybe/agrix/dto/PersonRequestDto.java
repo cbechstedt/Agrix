@@ -6,7 +6,7 @@ import com.betrybe.agrix.security.Role;
 /**
  * Define DTO.
  */
-public record PersonRequestDto(long id, String username, String password, Role role) {
+public record PersonRequestDto(String username, String password, Role role) {
 
   /**
    * Método para transformar dto em entidade.
