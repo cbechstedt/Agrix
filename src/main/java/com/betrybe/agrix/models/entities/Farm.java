@@ -9,7 +9,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
-import org.antlr.v4.runtime.misc.NotNull;
 
 /**
  * Define entidade Farm da tabela farms.
