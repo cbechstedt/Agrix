@@ -7,7 +7,7 @@ persistence in a MySQL database and Spring Security with JWT for authentication 
 
 ## Database
 
-### Modelo de Tabelas
+### Database Schema
 
 The data model includes the following tables:
 
