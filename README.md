@@ -19,6 +19,144 @@ The data model includes the following tables:
 
 ![Tabelas](images/agrix-tabelas-fase-b.png)
 
+## Request and Response examples
+<details>
+  <summary>🔍 Formato/exemplo de requisição e resposta na rota POST '/persons', para criar usuário.</summary><br /> 
+
+Exemplo de requisição:
+
+```json
+{
+  "username": "Pedro",
+  "password": "123456",
+  "role": "ADMIN"
+}
+```
+
+Exemplo de resposta:
+
+Status: 201 Created
+```json
+{
+  "id": 1,
+  "username": "Pedro",
+  "role": "ADMIN"
+}
+```
+</details>
+<details>
+  <summary>🔍 Formato/exemplo de requisição e resposta na rota POST '/auth/login', para logar e receber token.</summary><br /> 
+
+Exemplo de requisição:
+
+```json
+{
+  "username": "Pedro",
+  "password": "123456"
+}
+```
+
+Exemplo de resposta:
+
+Status: 200 OK
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJpc3N1ZXIiLCJzdWIiOiJuYW5pIiwiZXhwIjoxNzEyNzgxMTYxfQ.Kpxq2E7KtANq_Wx8RTYuJEkVljFf3EaHlSCUOKsj9Ss"
+}
+```
+</details>
+<details>
+  <summary>🔍 Formato/exemplo de requisição e resposta na rota POST '/farms', para criar uma farm.</summary><br />
+  É necessário inserir o token, do tipo Bearer Token, na aba Authorization para ter autorização nessa em nas demais requisi.
+
+Exemplo de requisição:
+
+```json
+{
+  "name": "Capão Farm",
+  "size": "5"
+}
+```
+
+Exemplo de resposta:
+
+Status: 201 Created
+```json
+{
+  "id": 1,
+  "name": "RS Farm",
+  "size": 5.0
+}
+```
+</details>
+<details>
+  <summary>🔍 Formato/exemplo de requisição e resposta na rota PUT '/farms', para editar uma farm.</summary><br />
+Exemplo de requisição:
+
+```json
+{
+  "name": "Capão Farm",
+  "size": "5"
+}
+```
+
+Exemplo de resposta:
+
+Status: 201 Created
+```json
+{
+  "id": 1,
+  "name": "RS Farm",
+  "size": 5.0
+}
+```
+</details>
+
+<details>
+  <summary>🔍 Formato/exemplo de resposta na rota GET '/farms', para retornar todas farms.</summary><br />
+
+Status: 200 OK
+```json
+[
+  {
+    "id": 1,
+    "name": "RS Farm",
+    "size": 5.0
+  },
+  {
+    "id": 2,
+    "name": "Imbé Farm",
+    "size": 6.3
+  }
+]
+```
+</details>
+<details>
+  <summary>🔍 Formato/exemplo de requisição e resposta na rota POST '/fertilizers', para criar um fertilizante.</summary><br /> 
+
+Exemplo de requisição:
+
+```json
+{
+  "name": "NPK",
+  "brand": "My Brand npk",
+  "composition": "nitrogen, phosphorus and potassium."
+}
+```
+
+Exemplo de resposta:
+
+Status: 201 Created
+```json
+{
+  "id": 1,
+  "name": "NPK",
+  "brand": "My Brand npk",
+  "composition": "nitrogen, phosphorus and potassium."
+}
+```
+</details>
+
 ## Installation
 
 To install the project's dependencies, execute the following command:
