@@ -122,7 +122,8 @@ Status: 201 Created
 
 <details>
   <summary>🔍 Formato/exemplo de resposta na rota GET '/farms', para retornar todas farms.</summary><br />
-
+Exemplo de resposta:
+  
 Status: 200 OK
 ```json
 [
@@ -138,6 +139,13 @@ Status: 200 OK
   }
 ]
 ```
+</details>
+<details>
+  <summary>🔍 Formato/exemplo de resposta na rota DELETE '/farms/{id}', para deletar a farm correspondente ao id.</summary><br />
+Exemplo de resposta:
+  
+Status: 204 No Content
+
 </details>
 <details>
   <summary>🔍 Formato/exemplo de requisição e resposta na rota POST '/fertilizers', para criar um fertilizante.</summary><br /> 
