@@ -19,6 +19,14 @@ The data model includes the following tables:
 
 ![Tabelas](images/agrix-tabelas-fase-b.png)
 
+## Installation
+
+To install the project's dependencies, execute the following command:
+
+```bash
+mvn install -DskipTests
+```
+
 ## Request and Response examples
 <details>
   <summary>🔍 Formato/exemplo de requisição e resposta na rota POST '/persons', para criar usuário.</summary><br /> 
@@ -156,14 +164,6 @@ Status: 201 Created
 }
 ```
 </details>
-
-## Installation
-
-To install the project's dependencies, execute the following command:
-
-```bash
-mvn install -DskipTests
-```
 
 ## Running Tests
 
