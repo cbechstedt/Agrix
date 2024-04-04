@@ -10,9 +10,9 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: agrixdb
-    networks:
-      - agrix_net
 
-networks:
-  agrix_net:
-    driver: bridge
+#  app:
+#    build: .
+#    container_name: agrix_app
+#    ports:
+#      - "8080:8080"

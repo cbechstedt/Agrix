@@ -8,12 +8,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 /**
  * Define controlador para Farm.
@@ -63,4 +66,26 @@ public class FarmController {
     FarmDto farmDto = FarmDto.entityToDto(farm);
     return ResponseEntity.status(200).body(farmDto);
   }
+
+  /**
+   * Javadoc.
+   */
+  @PutMapping("/{id}")
+  public ResponseEntity<FarmDto> update(@PathVariable("id") long id,
+      @RequestBody FarmDto farmDto) throws FarmNotFound {
+    Farm farm = farmService.findById(id);
+    farm.setName(farmDto.name());
+    farm.setSize(farmDto.size());
+
+    Farm updatedFarm = farmService.save(farm);
+    FarmDto updatedFarmDto = FarmDto.entityToDto(updatedFarm);
+    return ResponseEntity.status(200).body(updatedFarmDto);
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> delete(@PathVariable("id") long id) {
+    farmService.delete(id);
+    return ResponseEntity.status(204).build();
+  }
+
 }

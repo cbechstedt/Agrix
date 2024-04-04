@@ -10,7 +10,7 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
-  <groupId>com.betrybe</groupId>
+  <groupId>com.chris</groupId>
   <artifactId>agrix</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>agrix</name>
@@ -66,12 +66,19 @@
       <artifactId>spring-boot-starter-security</artifactId>
       <version>3.1.1</version>
     </dependency>
-    
+
     <dependency>
       <groupId>com.auth0</groupId>
       <artifactId>java-jwt</artifactId>
       <version>4.4.0</version>
     </dependency>
+
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>2.0.1.Final</version>
+    </dependency>
+
 
     <!-- Spring Boot -->
 
@@ -109,6 +116,11 @@
       <artifactId>junit-jupiter-engine</artifactId>
       <version>5.4.2</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>6.0.10</version>
     </dependency>
   </dependencies>
 

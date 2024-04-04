@@ -40,4 +40,8 @@ public class FarmService {
     return farm.get();
   }
 
+  public void delete(long id) {
+    farmRepository.deleteById(id);
+  }
+
 }
