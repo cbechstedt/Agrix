@@ -1,6 +1,6 @@
 # Farm API
 
-![Java](https://img.shields.io/badge/Java-17-brightgreen) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.1.1-brightgreen) ![MySQL](https://img.shields.io/badge/MySQL-blue)
+![Java](https://img.shields.io/badge/Java-17-brightgreen) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.1.1-brightgreen) ![MySQL](https://img.shields.io/badge/MySQL-blue) ![Docker](https://img.shields.io/badge/Docker-Blue)
 
 I developed a REST API in Java, using the Spring ecosystem. This API utilizes Spring Data JPA for
 persistence in a MySQL database and Spring Security with JWT for authentication and authorization. 
