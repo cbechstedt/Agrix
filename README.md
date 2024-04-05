@@ -3,7 +3,8 @@
 ![Java](https://img.shields.io/badge/Java-17-brightgreen) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.1.1-brightgreen) ![MySQL](https://img.shields.io/badge/MySQL-blue)
 
 I developed a REST API in Java, using the Spring ecosystem. This API utilizes Spring Data JPA for
-persistence in a MySQL database and Spring Security with JWT for authentication and authorization.
+persistence in a MySQL database and Spring Security with JWT for authentication and authorization. 
+Moreover, this app is Dockerized, making it easy to deploy and run across different environments.
 
 ## Database
 
@@ -20,18 +21,22 @@ The data model includes the following tables:
 ![Tabelas](images/agrix-tabelas-fase-b.png)
 
 ## Installation
-
+### Running the application with Dcoker
+- Make sure Docker is installed on your machine.
+- Build the Docker image in your terminal from the project directory:
+```bash
+docker compose up -d
+```
 To install the project's dependencies, execute the following command:
-
 ```bash
 mvn install -DskipTests
 ```
 
 ## Request and Response examples
 <details>
-  <summary>🔍 Formato/exemplo de requisição e resposta na rota POST '/persons', para criar usuário.</summary><br /> 
+  <summary>🔍 Request and response format/example on POST '/persons' route to create a user.</summary><br /> 
 
-Exemplo de requisição:
+Request:
 
 ```json
 {
@@ -41,7 +46,7 @@ Exemplo de requisição:
 }
 ```
 
-Exemplo de resposta:
+Response:
 
 Status: 201 Created
 ```json
@@ -53,9 +58,9 @@ Status: 201 Created
 ```
 </details>
 <details>
-  <summary>🔍 Formato/exemplo de requisição e resposta na rota POST '/auth/login', para logar e receber token.</summary><br /> 
+  <summary>🔍 Request and response format/example on POST '/auth/login' route to log in and receive a token.</summary><br /> 
 
-Exemplo de requisição:
+Request:
 
 ```json
 {
@@ -64,7 +69,7 @@ Exemplo de requisição:
 }
 ```
 
-Exemplo de resposta:
+Response:
 
 Status: 200 OK
 ```json
@@ -74,32 +79,10 @@ Status: 200 OK
 ```
 </details>
 <details>
-  <summary>🔍 Formato/exemplo de requisição e resposta na rota POST '/farms', para criar uma farm.</summary><br />
-  É necessário inserir o token, do tipo Bearer Token, na aba Authorization para ter autorização nessa em nas demais requisi.
+  <summary>🔍 Request and response format/example on POST '/farms' route to create a farm.</summary><br />
+  It is necessary to include token of type Bearer Token in the Authorization tab to have authorization in this and in other requests.
 
-Exemplo de requisição:
-
-```json
-{
-  "name": "Capão Farm",
-  "size": "5"
-}
-```
-
-Exemplo de resposta:
-
-Status: 201 Created
-```json
-{
-  "id": 1,
-  "name": "RS Farm",
-  "size": 5.0
-}
-```
-</details>
-<details>
-  <summary>🔍 Formato/exemplo de requisição e resposta na rota PUT '/farms', para editar uma farm.</summary><br />
-Exemplo de requisição:
+Request:
 
 ```json
 {
@@ -108,21 +91,43 @@ Exemplo de requisição:
 }
 ```
 
-Exemplo de resposta:
+Response:
 
 Status: 201 Created
 ```json
 {
   "id": 1,
-  "name": "RS Farm",
+  "name": "Capão Farm",
   "size": 5.0
+}
+```
+</details>
+<details>
+  <summary>🔍 Request and response format/example on PUT '/farms' route, to edit a farm.</summary><br />
+Request:
+
+```json
+{
+  "name": "Capão Farm",
+  "size": "6.6"
+}
+```
+
+Response:
+
+Status: 200 OK
+```json
+{
+  "id": 1,
+  "name": "Capão Farm",
+  "size": 6.6
 }
 ```
 </details>
 
 <details>
-  <summary>🔍 Formato/exemplo de resposta na rota GET '/farms', para retornar todas farms.</summary><br />
-Exemplo de resposta:
+  <summary>🔍 Request and response format/example on GET '/farms' route to return all farms.</summary><br />
+Response:
   
 Status: 200 OK
 ```json
@@ -141,16 +146,16 @@ Status: 200 OK
 ```
 </details>
 <details>
-  <summary>🔍 Formato/exemplo de resposta na rota DELETE '/farms/{id}', para deletar a farm correspondente ao id.</summary><br />
-Exemplo de resposta:
+  <summary>🔍 Request and response format/example on DELETE '/farms/{id}' route to delete a farm based on its id.</summary><br />
+Response:
   
 Status: 204 No Content
 
 </details>
 <details>
-  <summary>🔍 Formato/exemplo de requisição e resposta na rota POST '/fertilizers', para criar um fertilizante.</summary><br /> 
+  <summary>🔍 Request and response format/example on POST '/fertilizers' route to create a fertilizer.</summary><br /> 
 
-Exemplo de requisição:
+Request:
 
 ```json
 {
@@ -160,7 +165,7 @@ Exemplo de requisição:
 }
 ```
 
-Exemplo de resposta:
+Response:
 
 Status: 201 Created
 ```json
