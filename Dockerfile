@@ -14,7 +14,7 @@ COPY src ./src
 RUN mvn package -DskipTests
 
 # Segundo estágio: criar a imagem final
-FROM adoptopenjdk:17-jre-alpine
+FROM openjdk:17-alpine
 
 WORKDIR /app
 
